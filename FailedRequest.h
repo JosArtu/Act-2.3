@@ -11,12 +11,12 @@ using namespace std;
 
 class FailedRequest{
     private:
-        double days, hours, minutes, seconds, date;
+        double days, hours, minutes, seconds, ipSortValue;
         string ip, reason, month, time;
     public:
     FailedRequest(string month, double days, string time, double hours, double minutes, double seconds, string ip, string reason);
         double getDay();
-        double getDate();
+        double getIpSortValue();
         string getTime();
         string getMonth();
         string getIp();
