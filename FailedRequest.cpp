@@ -6,6 +6,15 @@
 
 // Complejidad O(1)
 FailedRequest::FailedRequest(string month, double days, string time, double hours, double minutes, double seconds, string ip, string reason){
+    this->month = month;
+    this->days = days;
+    this->time = time;
+    this->hours = hours;
+    this->minutes = minutes;
+    this->seconds = seconds;
+    this->ip = ip;
+    this->reason = reason;
+    
     string ipCopy = ip;
     int pos;
 

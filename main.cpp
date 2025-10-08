@@ -5,6 +5,8 @@
 #include "LoginSystem.cpp"
 #include "FailedRequest.h"
 #include "FailedRequest.cpp"
+#include "SortSystem.h"
+#include "SortSystem.cpp"
 
 int main(){
     LoginSystem A1;

@@ -7,7 +7,7 @@
 
 #include "FailedRequest.h"
 #include "MyLinkedList.h"
-//#include "SortSystem.h"
+#include "SortSystem.h"
 //#include "SearchSystem.h"
 #include <fstream>
 #include <vector>
@@ -18,7 +18,7 @@ class LoginSystem{
     private:
         MyLinkedList* lista;
         string FileLocation = "bitacora.txt";
-        //SortSystem *sortRequests;
+        SortSystem *sortRequests;
         //SearchSystem *searchRequests;
     public:
         LoginSystem();

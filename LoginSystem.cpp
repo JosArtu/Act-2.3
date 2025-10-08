@@ -31,27 +31,29 @@ LoginSystem::LoginSystem(){
         lista->insertLast(days, hours, minutes, seconds, time, ip, reason, month);
     }
     
-    cout << this->lista->length() << endl;
-}
-/*
-    sortRequests = new SortSystem(FailedRequests);
+    cout << "Sorting..." << endl;
+    sortRequests = new SortSystem(lista);
+    cout << "Sorted\n" << endl;
     delete sortRequests;
 
     ofstream sortedFile("bitacoraOrdenada1.3-eq8.txt");
 
-    int n = FailedRequests.size();
+    MyNodoLL* actualNode = lista->getAtNode(0);
+    int n = lista->length();
     for (int i = 0; i < n; i++){
-        sortedFile << FailedRequests[i]->getMonth() << " ";
-        sortedFile << FailedRequests[i]->getDay() << " ";
-        sortedFile << FailedRequests[i]->getTime() << " ";
-        sortedFile << FailedRequests[i]->getIp() << " ";
-        sortedFile << FailedRequests[i]->getReason() << " ";
+        sortedFile << actualNode->request->getMonth() << " ";
+        sortedFile << actualNode->request->getDay() << " ";
+        sortedFile << actualNode->request->getTime() << " ";
+        sortedFile << actualNode->request->getIp() << " ";
+        sortedFile << actualNode->request->getReason() << " ";
 
         if(i != n - 1){
             sortedFile << "\n";
+            actualNode = actualNode->next;
         }
     }
-    //searchRequests = new SearchSystem(FailedRequests);
+}
+    /*searchRequests = new SearchSystem(FailedRequests);
 }
 void LoginSystem::searchRequest(string start, string end){
     searchRequests->search(start, end);

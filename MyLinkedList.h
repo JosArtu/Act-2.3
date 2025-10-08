@@ -15,6 +15,9 @@ struct MyNodoLL{
         this->request = new FailedRequest(month, days, time, hours, minutes, seconds, ip, reason);
     }
     MyNodoLL(double days, double hours, double minutes, double seconds, string time, string ip, string reason, string month):MyNodoLL(days, hours, minutes, seconds, time, ip, reason, month, nullptr){};
+    MyNodoLL(FailedRequest* request):request(request){
+        next = nullptr;
+    }
 };
 
 
@@ -27,9 +30,11 @@ class MyLinkedList{
         MyLinkedList();
         ~MyLinkedList();
         int length();
-        string firstIP(); //Exc invalid_argument
-        string lastIP(); //Exc invalid_argument
-        string getAtIP(int pos); //Exc invalid_argument
+        MyNodoLL* getAtNode(int pos);
+        FailedRequest* getAt(int pos); 
+        FailedRequest* getAt(int pos, MyNodoLL* actualNode); 
         void insertLast(double days, double hours, double minutes, double seconds, string time, string ip, string reason, string month);
+        void insertLast(FailedRequest* request);
+        void setAt(int pos, FailedRequest* request);
 };
 #endif
