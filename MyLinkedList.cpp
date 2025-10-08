@@ -1,5 +1,7 @@
-//José Arturo Mitre Garcia
-//A00228334
+// José Arturo Mitre García A00228334
+// Alejandro Moctezuma Manrique A01614778
+// Isaac Esaú Vega Reynaga A01647044
+
 #include "MyLinkedList.h"
 
 using namespace std;
@@ -25,6 +27,7 @@ MyLinkedList::~MyLinkedList(){
 int MyLinkedList::length(){
     return this->size;
 }
+//Complejidad: O(n)
 MyNodoLL* MyLinkedList::getAtNode(int pos){
     MyNodoLL* actualNode = head;
     for (int i = 0; i < pos; i++){
@@ -32,7 +35,7 @@ MyNodoLL* MyLinkedList::getAtNode(int pos){
     }
     return actualNode;
 }
-//Complejidad: Peor de los casos: O(n), mejor de los casos: O(1)
+//Complejidad: Peor de los casos: O(n)
 FailedRequest* MyLinkedList::getAt(int pos){
     MyNodoLL* actualNode = head;
     for (int i = 0; i < pos; i++){
@@ -40,23 +43,24 @@ FailedRequest* MyLinkedList::getAt(int pos){
     }
     return actualNode->request;
 }
+//Complejidad: O(1)
 FailedRequest* MyLinkedList::getAt(int pos, MyNodoLL* actualNode){
     return actualNode->next->request;
 }
 //Complejidad: O(1)
-void MyLinkedList::insertLast(double days, double hours, double minutes, double seconds, string time, string ip, string reason, string month){
+void MyLinkedList::insertLast(double days, string time, string ip, string reason, string month){
     if (this->size == 0){
-        head = new MyNodoLL(days, hours, minutes, seconds, time, ip, reason, month);
+        head = new MyNodoLL(days, time, ip, reason, month);
         tail = head;
     }
     else{
-        MyNodoLL* newNode = new MyNodoLL(days, hours, minutes, seconds, time, ip, reason, month);
+        MyNodoLL* newNode = new MyNodoLL(days, time, ip, reason, month);
         this->tail->next = newNode;
         this->tail = newNode;
     }
     this->size++;
 }
-
+//Complejidad: O(1)
 void MyLinkedList::insertLast(FailedRequest* request){
     if (this->size == 0){
         head = new MyNodoLL(request);
@@ -70,7 +74,7 @@ void MyLinkedList::insertLast(FailedRequest* request){
     this->size++;
 }
 
-//Complejidad: Peor de los casos: O(n), mejor de los casos: O(1)
+//Complejidad: Peor de los casos: O(n)
 void MyLinkedList::setAt(int pos, FailedRequest* request){
     MyNodoLL* selection = head;
     for (int i = 0; i < pos; i++){

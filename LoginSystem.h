@@ -8,9 +8,8 @@
 #include "FailedRequest.h"
 #include "MyLinkedList.h"
 #include "SortSystem.h"
-//#include "SearchSystem.h"
+#include "SearchSystem.h"
 #include <fstream>
-#include <vector>
 
 using namespace std;
 
@@ -19,9 +18,10 @@ class LoginSystem{
         MyLinkedList* lista;
         string FileLocation = "bitacora.txt";
         SortSystem *sortRequests;
-        //SearchSystem *searchRequests;
+        SearchSystem *searchRequests;
     public:
         LoginSystem();
+        ~LoginSystem();
         void searchRequest(string start, string end);
 };
 

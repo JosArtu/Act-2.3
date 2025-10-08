@@ -1,5 +1,7 @@
-//José Arturo Mitre Garcia
-//A00228334
+// José Arturo Mitre García A00228334
+// Alejandro Moctezuma Manrique A01614778
+// Isaac Esaú Vega Reynaga A01647044
+
 #ifndef MYLINKEDLIST_H
 #define MYLINKEDLIST_H
 
@@ -11,10 +13,10 @@ struct MyNodoLL{
     MyNodoLL* next;
     FailedRequest* request;
 
-    MyNodoLL(double days, double hours, double minutes, double seconds, string time, string ip, string reason, string month, MyNodoLL* next){
-        this->request = new FailedRequest(month, days, time, hours, minutes, seconds, ip, reason);
+    MyNodoLL(double days, string time, string ip, string reason, string month, MyNodoLL* next){
+        this->request = new FailedRequest(month, days, time, ip, reason);
     }
-    MyNodoLL(double days, double hours, double minutes, double seconds, string time, string ip, string reason, string month):MyNodoLL(days, hours, minutes, seconds, time, ip, reason, month, nullptr){};
+    MyNodoLL(double days, string time, string ip, string reason, string month):MyNodoLL(days, time, ip, reason, month, nullptr){};
     MyNodoLL(FailedRequest* request):request(request){
         next = nullptr;
     }
@@ -33,7 +35,7 @@ class MyLinkedList{
         MyNodoLL* getAtNode(int pos);
         FailedRequest* getAt(int pos); 
         FailedRequest* getAt(int pos, MyNodoLL* actualNode); 
-        void insertLast(double days, double hours, double minutes, double seconds, string time, string ip, string reason, string month);
+        void insertLast(double days, string time, string ip, string reason, string month);
         void insertLast(FailedRequest* request);
         void setAt(int pos, FailedRequest* request);
 };

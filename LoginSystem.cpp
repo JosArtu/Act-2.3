@@ -24,11 +24,7 @@ LoginSystem::LoginSystem(){
         getline(rawFile, reason);
         reason.erase(0, 1);
 
-        hours = stoi(time.substr(0,2));
-        minutes = stoi(time.substr(3,2));
-        seconds = stoi(time.substr(6,2));
-
-        lista->insertLast(days, hours, minutes, seconds, time, ip, reason, month);
+        lista->insertLast(days, time, ip, reason, month);
     }
     
     cout << "Sorting..." << endl;
@@ -36,7 +32,7 @@ LoginSystem::LoginSystem(){
     cout << "Sorted\n" << endl;
     delete sortRequests;
 
-    ofstream sortedFile("bitacoraOrdenada1.3-eq8.txt");
+    ofstream sortedFile("bitacoraOrdenadaIP-eq8.txt");
 
     MyNodoLL* actualNode = lista->getAtNode(0);
     int n = lista->length();
@@ -52,11 +48,27 @@ LoginSystem::LoginSystem(){
             actualNode = actualNode->next;
         }
     }
+    searchRequests = new SearchSystem(lista);
 }
-    /*searchRequests = new SearchSystem(FailedRequests);
+//Complejidad O(n)
+LoginSystem::~LoginSystem(){
+    MyNodoLL* actualNode = lista->getAtNode(0);
+    MyNodoLL* nextNode;
+    int n = lista->length();
+    for (int i = 0; i < n; i++){
+        nextNode = actualNode->next;
+        delete actualNode->request;
+        actualNode = nextNode;
+    }
+
+    delete searchRequests;
+    delete lista;
+    searchRequests = nullptr;
+    lista = nullptr;
 }
+//Complejidad O(n)
 void LoginSystem::searchRequest(string start, string end){
     searchRequests->search(start, end);
 }
-*/
+
 

@@ -57,6 +57,5 @@ void SortSystem::merge(int start, int end){
         bitacoraNode->request = arregloNode->request;
         bitacoraNode = bitacoraNode->next;
         arregloNode = arregloNode->next;
-
     }
 }
