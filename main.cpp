@@ -19,7 +19,7 @@ int main(){
     string start, end, option;
 
     //referencias: https://www.geeksforgeeks.org/cpp/getline-string-c/ Getline para tomar todo el input con espacios
-    while (true)
+    do
     {
         cout << "IP de inicio: ";
         getline(cin, start);
@@ -30,9 +30,8 @@ int main(){
         cout << "Deseas hacer otra busqueda? (si/no): ";
         getline(cin, option);
 
-        if (option != "si"){
-            break;
-        }
     }
+    while(option == "si");
+    
     return 0;
 }

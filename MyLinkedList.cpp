@@ -44,10 +44,6 @@ FailedRequest* MyLinkedList::getAt(int pos){
     return actualNode->request;
 }
 //Complejidad: O(1)
-FailedRequest* MyLinkedList::getAt(int pos, MyNodoLL* actualNode){
-    return actualNode->next->request;
-}
-//Complejidad: O(1)
 void MyLinkedList::insertLast(double days, string time, string ip, string reason, string month){
     if (this->size == 0){
         head = new MyNodoLL(days, time, ip, reason, month);

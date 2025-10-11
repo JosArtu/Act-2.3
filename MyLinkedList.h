@@ -15,6 +15,7 @@ struct MyNodoLL{
 
     MyNodoLL(double days, string time, string ip, string reason, string month, MyNodoLL* next){
         this->request = new FailedRequest(month, days, time, ip, reason);
+        this->next = next;
     }
     MyNodoLL(double days, string time, string ip, string reason, string month):MyNodoLL(days, time, ip, reason, month, nullptr){};
     MyNodoLL(FailedRequest* request):request(request){
@@ -25,16 +26,16 @@ struct MyNodoLL{
 
 
 class MyLinkedList{
-    public:
+    private:
         int size;
         MyNodoLL* head;
         MyNodoLL* tail;
+    public:
         MyLinkedList();
         ~MyLinkedList();
         int length();
         MyNodoLL* getAtNode(int pos);
         FailedRequest* getAt(int pos); 
-        FailedRequest* getAt(int pos, MyNodoLL* actualNode); 
         void insertLast(double days, string time, string ip, string reason, string month);
         void insertLast(FailedRequest* request);
         void setAt(int pos, FailedRequest* request);

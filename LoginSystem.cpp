@@ -5,9 +5,9 @@
 #include "LoginSystem.h"
 
 // Referencias: https://www.youtube.com/watch?v=Re417iwYM84 Lectura de archivos
-// Referencias: https://www.geeksforgeeks.org/cpp/substring-in-cpp/ Uso de substr y stoi
 // Referencias: https://www.geeksforgeeks.org/cpp/stdstringerase-in-cpp/ Uso de erase
 // Referencias: https://www.youtube.com/watch?v=Rfe2Jb2JP-Y escritura de archivos
+// Referencias: https://www.geeksforgeeks.org/cpp/getline-string-c/ Getline para tomar todo el input con espacios
 // Complejidad: O(n log n)
 LoginSystem::LoginSystem(){
     double days, hours, minutes, seconds;
@@ -41,7 +41,7 @@ LoginSystem::LoginSystem(){
         sortedFile << actualNode->request->getDay() << " ";
         sortedFile << actualNode->request->getTime() << " ";
         sortedFile << actualNode->request->getIp() << " ";
-        sortedFile << actualNode->request->getReason() << " ";
+        sortedFile << actualNode->request->getReason();
 
         if(i != n - 1){
             sortedFile << "\n";

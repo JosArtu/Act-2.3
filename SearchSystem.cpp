@@ -7,7 +7,6 @@
 
 // Complejidad: O(n)
 void SearchSystem::search(string start, string end){
-
     double startIpSortValue = this->ipSortValueConvertor(start);
     double endIpSortValue = this->ipSortValueConvertor(end);
     MyNodoLL* startNode, *endNode;
@@ -20,11 +19,14 @@ void SearchSystem::search(string start, string end){
         current=current->next;
     }
     startNode = current;
-    for (int i=0;i<requests->length();i++){
+    if (startNode != nullptr)
+    {
+        while(current->next != nullptr){
         if (current->request->getIpSortValue()>=endIpSortValue){
             break;
         }
         current=current->next;
+        }
     }
     endNode = current;
     outputSearch(startNode, endNode);
@@ -37,13 +39,19 @@ void SearchSystem::outputSearch(MyNodoLL* startNode, MyNodoLL* endNode){
     ofstream sortedFile("salida" + to_string(searchNumber) + "-eq8.txt");
 
     MyNodoLL* actualNode = startNode;
+
+    if (startNode == nullptr)
+    {
+        return;
+    }
+    
     int n = requests->length();
     while(actualNode != endNode || startNode == endNode){
         sortedFile << actualNode->request->getMonth() << " ";
         sortedFile << actualNode->request->getDay() << " ";
         sortedFile << actualNode->request->getTime() << " ";
         sortedFile << actualNode->request->getIp() << " ";
-        sortedFile << actualNode->request->getReason() << " ";
+        sortedFile << actualNode->request->getReason();
 
         if (startNode == endNode)
         {
